@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>{{ page_title }}</h1>
+
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" class="control-group"><div>
+            <div class="register" class="form-group floating-label-form-group controls">
+                <h1>Register</h1>
+                <form action="templates/register.php" method="post" autocomplete="off">
+                    <label for="username">
+                        <i class="fas fa-user"></i>
+                    </label>
+                    <input type="text" name="username" placeholder="Username" id="username" required>
+                    <label for="password">
+                        <i class="fas fa-lock"></i>
+                    </label>
+                    <input type="password" name="password" placeholder="Password" id="password" required>
+                    <label for="email">
+                        <i class="fas fa-envelope"></i>
+                    </label>
+                    <input type="email" name="email" placeholder="Email" id="email" required>
+                    <input type="submit" value="Register">
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}

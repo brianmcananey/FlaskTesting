@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h2>{{ page_title }}</h2>
+<p>
+    Sunderland boasts a wealth of incredible eateries, remarkable restaurants and delicious delis.
+
+    To mark the city's 30th birthday, we have scanned Tripadvisor to compile a definitive list of the top ranked
+    places to eat, drink and be merry in Sunderland.
+
+    Everyone will have their own favourites, but here are the top-rated Tripadvisor venues in the city....
+</p>
+
+{% for member in company %}
+
+<div class="row featurette">
+
+    {% if loop.index % 2 != 0 %}
+
+        <div class="col-md-7">
+            <h3><a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a></h3>
+            <h4>{{ member.heading }}</h4>
+            <p>{{ member.description }}</p>
+        </div>
+        <div class="col-md-5">
+            <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
+        </div>
+
+    {% else %}   
+
+        <div class="col-md-5">
+            <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
+        </div> 
+        <div class="col-md-7">
+            <h3><a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a></h3>
+            <h4>{{ member.heading }}</h4>
+            <p>{{ member.description }}</p>
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% if loop.index != loop.length %}
+
+    <hr class="featurette-divider">
+
+{% endif %}
+
+{% endfor %}
+
+{% endblock %}
